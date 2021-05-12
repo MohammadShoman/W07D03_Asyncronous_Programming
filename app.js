@@ -17,7 +17,7 @@ const readFile = () => {
     console.log(content);
   });
 };
-readFile();
+//readFile();
 
 //Q3
 const writeFile = () => {
@@ -26,7 +26,7 @@ const writeFile = () => {
     console.log("new file");
   });
 };
-writeFile();
+//writeFile();
 
 //Q4
 /*
@@ -59,7 +59,7 @@ const getPost =  (id) => {
     
    
 };
-getPost(50)
+//getPost(50)
 //------------------------------------------------------------------------------//
 //Q5
 
@@ -74,7 +74,7 @@ const getPostAsync = async(data) => {
     throw err;
   }
 };
-getPostAsync(2)
+//getPostAsync(2)
 
 //practice
 //Q1
@@ -142,16 +142,28 @@ const getUsers = async() => {
   let response;
   try{
     response=await axios.get("https://jsonplaceholder.typicode.com/users")
-    console.log('DATA',response.data)
+   // console.log('DATA',response.data)
+    return response.data
   }catch(err){
     console.log("ERR",err)
   }
   
 };
-getUsers()
+//getUsers()
 
 
 //Q6
+const saveUsers =async () => {
+  console.log("getUsers",getUsers())
+  const users=await getUsers()
+
+  fs.writeFile("users.txt", JSON.stringify(users) , (err) => {
+    if (err) throw err;
+    console.log("new file");
+  });
+};
+saveUsers()
+
 
 
 app.listen(PORT, () => {
