@@ -84,7 +84,7 @@ const appendToFile = (data) => {
     if (err) throw err;
     console.log('The ${data} was appended to file!');})
 };
-appendToFile("hello")
+//appendToFile("hello")
 
 //Q2
 const copyFile = (fileName) => {
@@ -93,7 +93,7 @@ const copyFile = (fileName) => {
     console.log('the data has copied');})
 };
 
-copyFile('data.txt')
+//copyFile('data.txt')
 
 //Q3
 const post = JSON.stringify({
@@ -135,10 +135,27 @@ const updatePost = (postId, data) => {
       console.log('ERR',err)
     })
 };
-updatePost(1, newPost);
+//updatePost(1, newPost);
 
+//Q5
+const getUsers = async() => {
+  let response;
+  try{
+    response=await axios.get("https://jsonplaceholder.typicode.com/users")
+    console.log('DATA',response.data)
+  }catch(err){
+    console.log("ERR",err)
+  }
+  
+};
+getUsers()
+
+
+//Q6
 
 
 app.listen(PORT, () => {
   console.log("SERVER IS WORKING ON http://localhost:" + PORT);
 });
+
+
