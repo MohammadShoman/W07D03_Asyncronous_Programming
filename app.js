@@ -1,8 +1,11 @@
+
+
 const express = require("express");
 const app = express();
 const fs = require("fs");
-const axios = require("axios");
 
+const axios = require("axios");
+const PORT = 3000;
 app.use(express.json());
 
 //Q2
@@ -73,7 +76,24 @@ const getPostAsync = async(data) => {
 };
 getPostAsync(2)
 
-const PORT = 3000;
+//practice
+//Q1
+const appendToFile = (data) => {
+  
+  fs.appendFile("data.txt",data,(err) => {
+    if (err) throw err;
+    console.log('The ${data} was appended to file!');})
+};
+appendToFile("hello")
+
+
+
+
+
+
+
+
+
 app.listen(PORT, () => {
   console.log("SERVER IS WORKING ON http://localhost:" + PORT);
 });
