@@ -86,8 +86,14 @@ const appendToFile = (data) => {
 };
 appendToFile("hello")
 
+//Q2
+const copyFile = (fileName) => {
+  fs.copyFile(fileName,"copy_of_data.txt",(err) => {
+    if (err) throw err;
+    console.log('the data has copied');})
+};
 
-
+copyFile('data.txt')
 
 
 
