@@ -95,7 +95,26 @@ const copyFile = (fileName) => {
 
 copyFile('data.txt')
 
+//Q3
+const post = JSON.stringify({
+  title: "JavaScript Basics",
+  body: "This post contains information about javaScript ",
+  // the id of the user who is going to create the post
+  userId: 1,
+});
 
+const createPost = (post) => {
+  axios.post("https://jsonplaceholder.typicode.com/posts",post
+    )
+    .then((response)=>{
+      console.log('DATA',response.data)
+    })
+    .catch((err)=>{
+      console.log('ERR',err)
+    })
+};
+
+createPost(post);
 
 
 
