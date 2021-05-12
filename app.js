@@ -26,6 +26,7 @@ const writeFile = () => {
 writeFile();
 
 //Q4
+/*
 const getPost = async (id) => {
   let response;
   try {
@@ -37,7 +38,40 @@ const getPost = async (id) => {
     throw err;
   }
 };
+getPost(50)*/
+//------------------------------------------------------------------------------//
+//Q4 promises
+const getPost =  (id) => {
+  
+  
+     axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${id}`)
+
+      .then((response)=>{
+        console.log("DATA",response.data)
+      })
+    .catch((err)=>{
+      console.log("ERR",err)
+    })
+    
+   
+};
 getPost(50)
+//------------------------------------------------------------------------------//
+//Q5
+
+const getPostAsync = async(data) => {
+  let response;
+  try {
+    response = await axios.get(
+      `https://jsonplaceholder.typicode.com/posts/${data}`
+    );
+    console.log("DATA2",response.data)
+  } catch (err) {
+    throw err;
+  }
+};
+getPostAsync(2)
 
 const PORT = 3000;
 app.listen(PORT, () => {
